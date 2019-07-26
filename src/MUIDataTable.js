@@ -78,6 +78,8 @@ class MUIDataTable extends React.Component {
   static propTypes = {
     /** Data used to describe table */
     data: PropTypes.array.isRequired,
+    page: PropTypes.number,
+    count: PropTypes.number,
     /** Columns used to describe table */
     columns: PropTypes.PropTypes.arrayOf(
       PropTypes.oneOfType([
@@ -135,8 +137,6 @@ class MUIDataTable extends React.Component {
       caseSensitive: PropTypes.bool,
       rowHover: PropTypes.bool,
       fixedHeader: PropTypes.bool,
-      page: PropTypes.number,
-      count: PropTypes.number,
       rowsSelected: PropTypes.array,
       rowsPerPage: PropTypes.number,
       rowsPerPageOptions: PropTypes.array,
@@ -310,7 +310,7 @@ class MUIDataTable extends React.Component {
   };
 
   setTableOptions(props) {
-    const optionNames = ['rowsPerPage', 'page', 'rowsSelected', 'rowsPerPageOptions'];
+    const optionNames = ['rowsPerPage', 'rowsSelected', 'rowsPerPageOptions'];
     const optState = optionNames.reduce((acc, cur) => {
       if (this.options[cur] !== undefined) {
         acc[cur] = this.options[cur];
@@ -504,6 +504,7 @@ class MUIDataTable extends React.Component {
       const sortedData = this.sortTable(tableData, sortIndex, sortDirection);
       tableData = sortedData.data;
     }
+
     /* set source data and display Data set source set */
     this.setState(
       prevState => ({
@@ -512,7 +513,8 @@ class MUIDataTable extends React.Component {
         filterList: filterList,
         searchText: searchText,
         selectedRows: selectedRowsData,
-        count: options.count,
+        count: props.count,
+        page: props.page,
         data: tableData,
         displayData: this.getDisplayData(columns, tableData, filterList, searchText),
       }),
@@ -778,7 +780,7 @@ class MUIDataTable extends React.Component {
      * After changing rows per page recalculate totalPages and checks its if current page not higher.
      * Otherwise sets current page the value of nextTotalPages
      */
-    const rowCount = this.options.count || this.state.displayData.length;
+    const rowCount = this.props.count || this.state.displayData.length;
     const nextTotalPages = Math.floor(rowCount / rows);
 
     this.setState(
@@ -1158,11 +1160,8 @@ class MUIDataTable extends React.Component {
             <TableHead
               columns={columns}
               activeColumn={activeColumn}
-              data={displayData}
               count={rowCount}
               columns={columns}
-              page={page}
-              rowsPerPage={rowsPerPage}
               handleHeadUpdateRef={fn => (this.updateToolbarSelect = fn)}
               selectedRows={selectedRows}
               selectRowUpdate={this.selectRowUpdate}

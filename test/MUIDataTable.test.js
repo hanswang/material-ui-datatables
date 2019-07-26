@@ -239,13 +239,13 @@ describe('<MUIDataTable />', function() {
 
   it('should correctly re-build internal table data while maintaining pagination after state change', () => {
     let currentPage;
+    const page = 1;
     const options = {
       rowsPerPage: 1,
       rowsPerPageOptions: [1, 2, 4],
-      page: 1,
       onChangePage: current => (currentPage = current),
     };
-    const fullWrapper = mount(<MUIDataTable columns={columns} data={data} options={options} />);
+    const fullWrapper = mount(<MUIDataTable columns={columns} data={data} page={page} options={options} />);
 
     // simulate paging backward to set `currentPage`
     fullWrapper
@@ -269,7 +269,7 @@ describe('<MUIDataTable />', function() {
     // add data to simulate state change
     let newData = data.map(item => [...item]);
     newData.push(['Harry Smith', 'Test Corp', 'Philadelphia', 'PA', undefined]);
-    fullWrapper.setProps({ data: newData });
+    fullWrapper.setProps({ data: newData, page: 0 });
 
     // simulate paging forward to test whether or not the `currentPage` was reset
     fullWrapper

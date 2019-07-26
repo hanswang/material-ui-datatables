@@ -37,6 +37,8 @@ class TablePagination extends React.Component {
     rowsPerPage: PropTypes.number.isRequired,
     /** Callback to trigger rows per page change */
     changeRowsPerPage: PropTypes.func.isRequired,
+    /** Callback to change page */
+    changePage: PropTypes.func.isRequired,
   };
 
   handleRowChange = event => {
@@ -44,7 +46,6 @@ class TablePagination extends React.Component {
   };
 
   handlePageChange = (_, page) => {
-    const { options } = this.props;
     this.props.changePage(page);
   };
 
