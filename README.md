@@ -4,7 +4,7 @@
 
 # React-Datatable-Mui - Datatable based on Mui-Datatale with clear separation of data / options
 
-[![Build Status](https://travis-ci.org/gregnb/react-datatable-mui.svg?branch=master)](https://travis-ci.org/gregnb/react-datatable-mui)
+[![Build Status](https://travis-ci.org/hanswang/react-datatable-mui.svg?branch=master)](https://travis-ci.org/gregnb/react-datatable-mui)
 [![NPM Downloads](https://img.shields.io/npm/dt/react-datatable-mui.svg?style=flat)](https://npmcharts.com/compare/react-datatable-mui?minimal=true)
 [![Coverage Status](https://coveralls.io/repos/github/gregnb/react-datatable-mui/badge.svg?branch=master)](https://coveralls.io/github/gregnb/react-datatable-mui?branch=master)
 [![dependencies Status](https://david-dm.org/gregnb/react-datatable-mui/status.svg)](https://david-dm.org/gregnb/react-datatable-mui)
