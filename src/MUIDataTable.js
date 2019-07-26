@@ -70,7 +70,7 @@ const TABLE_LOAD = {
 // Populate this list with anything that might render in the toolbar to determine if we hide the toolbar
 const TOOLBAR_ITEMS = ['filter', 'search', 'print', 'download', 'viewColumns', 'customToolbar'];
 
-const hasToolbarItem = (options) => {
+const hasToolbarItem = options => {
   return !isUndefined(find(TOOLBAR_ITEMS, i => options[i]));
 };
 
