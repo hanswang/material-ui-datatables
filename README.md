@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/19170080/34070522-e15d32e2-e235-11e7-8af5-fa704cdcad56.png" />
 </div>
 
-# Material-UI-Datatables - Datatable based on Mui-Datatale with clear separation of data / options
+# Material-UI-Datatable - Datatable based on Mui-Datatale with clear separation of data / options
 
 [![Build Status](https://travis-ci.org/gregnb/material-ui-datatable.svg?branch=master)](https://travis-ci.org/gregnb/material-ui-datatable)
 [![NPM Downloads](https://img.shields.io/npm/dt/material-ui-datatable.svg?style=flat)](https://npmcharts.com/compare/material-ui-datatable?minimal=true)
@@ -10,7 +10,7 @@
 [![dependencies Status](https://david-dm.org/gregnb/material-ui-datatable/status.svg)](https://david-dm.org/gregnb/material-ui-datatable)
 [![npm version](https://badge.fury.io/js/material-ui-datatable.svg)](https://badge.fury.io/js/material-ui-datatable)
 
-Material-UI-Datatables is a data tables component built on [Material-UI](https://www.material-ui.com).  It comes with features like filtering, resizable + view/hide columns, search, export to CSV download, printing, selectable rows, expandable rows, pagination, and sorting. On top of the ability to customize styling on most views, there are two responsive modes "stacked" and "scroll" for mobile/tablet devices.
+Material-UI-Datatable is a data tables component built on [Material-UI](https://www.material-ui.com).  It comes with features like filtering, resizable + view/hide columns, search, export to CSV download, printing, selectable rows, expandable rows, pagination, and sorting. On top of the ability to customize styling on most views, there are two responsive modes "stacked" and "scroll" for mobile/tablet devices.
 
 <div align="center">
 	<img src="https://user-images.githubusercontent.com/19170080/38026128-eac9d506-3258-11e8-92a7-b0d06e5faa82.gif" />
@@ -18,7 +18,7 @@ Material-UI-Datatables is a data tables component built on [Material-UI](https:/
 
 ## Install
 
-`npm install material-ui-datatables --save`
+`npm install material-ui-datatable --save`
 
 ## Demo
 
