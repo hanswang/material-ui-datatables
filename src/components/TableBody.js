@@ -24,6 +24,10 @@ class TableBody extends React.Component {
     columns: PropTypes.array.isRequired,
     /** Options used to describe table */
     options: PropTypes.object.isRequired,
+    /** isLoading status check */
+    isLoading: PropTypes.bool,
+    /** loader element to render if is loading */
+    loader: PropTypes.object,
     /** Data used to filter table against */
     filterList: PropTypes.array,
     /** Callback to execute when row is clicked */
@@ -141,13 +145,13 @@ class TableBody extends React.Component {
   };
 
   render() {
-    const { classes, columns, toggleExpandRow, options } = this.props;
+    const { classes, columns, toggleExpandRow, options, isLoading, loader } = this.props;
     const tableRows = this.buildRows();
     const visibleColCnt = columns.filter(c => c.display === 'true').length;
 
     return (
       <MuiTableBody>
-        {tableRows && tableRows.length > 0 ? (
+        {tableRows && tableRows.length > 0 &&
           tableRows.map((data, rowIndex) => {
             const { data: row, dataIndex } = data;
 
@@ -203,7 +207,21 @@ class TableBody extends React.Component {
               </React.Fragment>
             );
           })
-        ) : (
+        }
+        {isLoading &&
+          <TableBodyRow options={options}>
+            <TableBodyCell
+              colSpan={options.selectableRows !== 'none' || options.expandableRows ? visibleColCnt + 1 : visibleColCnt}
+              options={options}
+              colIndex={0}
+              rowIndex={0}>
+              <Typography variant="subtitle1" className={classes.emptyTitle}>
+                {loader}
+              </Typography>
+            </TableBodyCell>
+          </TableBodyRow>
+        }
+        {!tableRows && !isLoading &&
           <TableBodyRow options={options}>
             <TableBodyCell
               colSpan={options.selectableRows !== 'none' || options.expandableRows ? visibleColCnt + 1 : visibleColCnt}
@@ -215,7 +233,7 @@ class TableBody extends React.Component {
               </Typography>
             </TableBodyCell>
           </TableBodyRow>
-        )}
+        }
       </MuiTableBody>
     );
   }

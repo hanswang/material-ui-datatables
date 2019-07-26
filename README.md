@@ -124,6 +124,7 @@ The component accepts the following props:
 |:--:|:-----|:-----|
 |**`columns`**|array|Columns used to describe table. Must be either an array of simple strings or objects describing a column
 |**`data`**|array|Data used to describe table. Must be an array containing objects. (Arrays containing just strings or numbers also supported)
+|**`isLoading`**|array|Data used to describe table. Must be an array containing objects. (Arrays containing just strings or numbers also supported)
 |**`page`**|number||User provided starting page for pagination
 |**`count`**|number||User provided override for total number of rows
 |**`options`**|object|Options used to describe table
@@ -132,6 +133,7 @@ The component accepts the following props:
 |Name|Type|Default|Description
 |:--:|:-----|:--|:-----|
 |**`serverSide`**|boolean|false|Enable remote data source
+|**`loader`**|object||Element to display when `isLoading` is `true`
 |**`rowsSelected`**|array||User provided selected rows
 |**`filterType `**|string||Choice of filtering view. `enum('checkbox', 'dropdown', 'multiselect', 'textField')`
 |**`textLabels `**|object||User provided labels to localize text

@@ -78,8 +78,10 @@ class MUIDataTable extends React.Component {
   static propTypes = {
     /** Data used to describe table */
     data: PropTypes.array.isRequired,
+    isLoading: PropTypes.bool,
+    loader: PropTypes.object,
     page: PropTypes.number,
-    count: PropTypes.number,
+    count: PropTypes.number.isRequired,
     /** Columns used to describe table */
     columns: PropTypes.PropTypes.arrayOf(
       PropTypes.oneOfType([
@@ -1181,6 +1183,8 @@ class MUIDataTable extends React.Component {
               toggleExpandRow={this.toggleExpandRow}
               options={this.options}
               filterList={filterList}
+              isLoading={this.props.isLoading}
+              loader={this.props.loader}
             />
           </MuiTable>
         </div>
