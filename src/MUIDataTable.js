@@ -514,7 +514,7 @@ class MUIDataTable extends React.Component {
         searchText: searchText,
         selectedRows: selectedRowsData,
         count: props.count,
-        page: props.page,
+        page: props.page ? props.page : this.state.page,
         data: tableData,
         displayData: this.getDisplayData(columns, tableData, filterList, searchText),
       }),
