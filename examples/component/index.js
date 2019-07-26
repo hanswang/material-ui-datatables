@@ -130,7 +130,7 @@ class Example extends React.Component {
     };
 
     return (
-      <MUIDataTable title={"ACME Employee list"} data={data} columns={columns} options={options} />
+      <MUIDataTable data={data} columns={columns} options={options} />
     );
 
   }

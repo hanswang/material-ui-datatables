@@ -175,7 +175,7 @@ class Example extends React.Component {
     };
 
     return (
-      <MUIDataTable title={"ACME Employee list"} data={this.state.data} columns={columns} options={options} />
+      <MUIDataTable data={this.state.data} columns={columns} options={options} />
     );
 
   }

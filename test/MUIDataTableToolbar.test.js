@@ -60,15 +60,6 @@ describe('<TableToolbar />', function() {
     assert.strictEqual(actualResult.length, 5);
   });
 
-  it('should render a toolbar with custom title if title is not string', () => {
-    const title = <h1>custom title</h1>;
-    const mountWrapper = mount(
-      <TableToolbar title={title} columns={columns} data={data} options={options} setTableAction={setTableAction} />,
-    );
-    const actualResult = mountWrapper.find('h1');
-    assert.strictEqual(actualResult.length, 1);
-  });
-
   it('should render a toolbar with search text initialized if option.searchText = some_text', () => {
     const newOptions = { ...options, search: true, searchText: 'searchText' };
     const mountWrapper = mount(

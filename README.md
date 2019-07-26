@@ -2,15 +2,15 @@
   <img src="https://user-images.githubusercontent.com/19170080/34070522-e15d32e2-e235-11e7-8af5-fa704cdcad56.png" />
 </div>
 
-# MUI-Datatables - Datatables for Material-UI
+# Material-UI-Datatables - Datatable based on Mui-Datatale with clear separation of data / options
 
-[![Build Status](https://travis-ci.org/gregnb/mui-datatables.svg?branch=master)](https://travis-ci.org/gregnb/mui-datatables)
-[![NPM Downloads](https://img.shields.io/npm/dt/mui-datatables.svg?style=flat)](https://npmcharts.com/compare/mui-datatables?minimal=true)
-[![Coverage Status](https://coveralls.io/repos/github/gregnb/mui-datatables/badge.svg?branch=master)](https://coveralls.io/github/gregnb/mui-datatables?branch=master)
-[![dependencies Status](https://david-dm.org/gregnb/mui-datatables/status.svg)](https://david-dm.org/gregnb/mui-datatables)
-[![npm version](https://badge.fury.io/js/mui-datatables.svg)](https://badge.fury.io/js/mui-datatables)
+[![Build Status](https://travis-ci.org/gregnb/material-ui-datatable.svg?branch=master)](https://travis-ci.org/gregnb/material-ui-datatable)
+[![NPM Downloads](https://img.shields.io/npm/dt/material-ui-datatable.svg?style=flat)](https://npmcharts.com/compare/material-ui-datatable?minimal=true)
+[![Coverage Status](https://coveralls.io/repos/github/gregnb/material-ui-datatable/badge.svg?branch=master)](https://coveralls.io/github/gregnb/material-ui-datatable?branch=master)
+[![dependencies Status](https://david-dm.org/gregnb/material-ui-datatable/status.svg)](https://david-dm.org/gregnb/material-ui-datatable)
+[![npm version](https://badge.fury.io/js/material-ui-datatable.svg)](https://badge.fury.io/js/material-ui-datatable)
 
-MUI-Datatables is a data tables component built on [Material-UI](https://www.material-ui.com).  It comes with features like filtering, resizable + view/hide columns, search, export to CSV download, printing, selectable rows, expandable rows, pagination, and sorting. On top of the ability to customize styling on most views, there are two responsive modes "stacked" and "scroll" for mobile/tablet devices.
+Material-UI-Datatables is a data tables component built on [Material-UI](https://www.material-ui.com).  It comes with features like filtering, resizable + view/hide columns, search, export to CSV download, printing, selectable rows, expandable rows, pagination, and sorting. On top of the ability to customize styling on most views, there are two responsive modes "stacked" and "scroll" for mobile/tablet devices.
 
 <div align="center">
 	<img src="https://user-images.githubusercontent.com/19170080/38026128-eac9d506-3258-11e8-92a7-b0d06e5faa82.gif" />
@@ -18,7 +18,7 @@ MUI-Datatables is a data tables component built on [Material-UI](https://www.mat
 
 ## Install
 
-`npm install mui-datatables --save`
+`npm install material-ui-datatables --save`
 
 ## Demo
 
@@ -30,7 +30,7 @@ For a simple table:
 
 ```js
 
-import MUIDataTable from "mui-datatables";
+import MUIDataTable from "material-ui-datatable";
 
 const columns = ["Name", "Company", "City", "State"];
 
@@ -46,7 +46,6 @@ const options = {
 };
 
 <MUIDataTable
-  title={"Employee List"}
   data={data}
   columns={columns}
   options={options}
@@ -58,7 +57,7 @@ Or customize columns:
 
 ```js
 
-import MUIDataTable from "mui-datatables";
+import MUIDataTable from "material-ui-datatable";
 
 const columns = [
  {
@@ -107,7 +106,6 @@ const options = {
 };
 
 <MUIDataTable
-  title={"Employee List"}
   data={data}
   columns={columns}
   options={options}
@@ -124,7 +122,6 @@ The component accepts the following props:
 
 |Name|Type|Description
 |:--:|:-----|:-----|
-|**`title`**|array|Title used to caption table
 |**`columns`**|array|Columns used to describe table. Must be either an array of simple strings or objects describing a column
 |**`data`**|array|Data used to describe table. Must be an array containing objects. (Arrays containing just strings or numbers also supported)
 |**`options`**|object|Options used to describe table
@@ -215,9 +212,9 @@ const columns = [
 |**`display`**|string|'true'|Display column in table. `enum('true', 'false', 'excluded')`
 |**`empty`**|boolean|false|This denotes whether the column has data or not (for use with intentionally empty columns)
 |**`viewColumns`**|boolean|true|Allow user to toggle column visibility through 'View Column' list
-|**`filterList`**|array||Filter value list [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/column-filters/index.js)
-|**`filterOptions`**|{names, logic, display}||With filter options, it's possible to use custom names for the filter fields [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/column-filters/index.js), custom filter logic [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/customize-filter/index.js), and custom rendering [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/customize-filter/index.js)
-|**`customFilterListRender`**|function||Function that returns a string used as the chip label. `function(value) => string` [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/column-filters/index.js)
+|**`filterList`**|array||Filter value list [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/column-filters/index.js)
+|**`filterOptions`**|{names, logic, display}||With filter options, it's possible to use custom names for the filter fields [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/column-filters/index.js), custom filter logic [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/customize-filter/index.js), and custom rendering [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/customize-filter/index.js)
+|**`customFilterListRender`**|function||Function that returns a string used as the chip label. `function(value) => string` [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/column-filters/index.js)
 |**`filter`**|boolean|true|Display column in filter list
 |**`filterType `**|string|'dropdown'|Choice of filtering view. Takes priority over global filterType option.`enum('checkbox', 'dropdown', 'multiselect', 'textField', 'custom')` Use 'custom' if you are supplying your own rendering via `filterOptions`.
 |**`sort`**|boolean|true|Enable/disable sorting on column
@@ -227,7 +224,7 @@ const columns = [
 |**`download`**|boolean|true|Display column in CSV download file
 |**`hint`**|string||Display hint icon with string as tooltip on hover.
 |**`customHeadRender`**|function||Function that returns a string or React component. Used as display for column header. `function(columnMeta, handleToggleColumn) => string`&#124;` React Component`
-|**`customBodyRender`**|function||Function that returns a string or React component. Used as display data within all table cells of a given column. `function(value, tableMeta, updateValue) => string`&#124;` React Component` [Example](https://github.com/gregnb/mui-datatables/blob/master/examples/component/index.js)
+|**`customBodyRender`**|function||Function that returns a string or React component. Used as display data within all table cells of a given column. `function(value, tableMeta, updateValue) => string`&#124;` React Component` [Example](https://github.com/gregnb/material-ui-datatable/blob/master/examples/component/index.js)
 |**`setCellProps`**|function||Is called for each cell and allows to return custom props for this cell based on its data. `function(cellValue: string, rowIndex: number, columnIndex: number) => object`
 
 `customHeadRender` is called with these arguments:
@@ -281,7 +278,7 @@ Using Material-UI theme overrides will allow you to customize styling to your li
 
 ```js
 import React from "react";
-import MUIDataTable from "mui-datatables";
+import MUIDataTable from "material-ui-datatable";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 class BodyCellExample extends React.Component {
@@ -300,7 +297,7 @@ class BodyCellExample extends React.Component {
 
     return (
       <MuiThemeProvider theme={this.getMuiTheme()}>
-        <MUIDataTable title={"ACME Employee list"} data={data} columns={columns} options={options} />
+        <MUIDataTable data={data} columns={columns} options={options} />
       </MuiThemeProvider>
     );
 
@@ -324,7 +321,7 @@ const options = {
 };
 ```
 
-To see an example **[Click Here](https://github.com/gregnb/mui-datatables/blob/master/examples/serverside-pagination/index.js)**
+To see an example **[Click Here](https://github.com/gregnb/material-ui-datatable/blob/master/examples/serverside-pagination/index.js)**
 
 ## Localization
 

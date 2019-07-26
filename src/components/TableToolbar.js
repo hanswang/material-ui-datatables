@@ -163,7 +163,6 @@ class TableToolbar extends React.Component {
       filterUpdate,
       resetFilters,
       toggleViewColumn,
-      title,
       tableRef,
     } = this.props;
 
@@ -173,22 +172,14 @@ class TableToolbar extends React.Component {
     return (
       <Toolbar className={classes.root} role={'toolbar'} aria-label={'Table Toolbar'}>
         <div className={classes.left}>
-          {showSearch === true ? (
+          {showSearch &&
             <TableSearch
               searchText={searchText}
               onSearch={this.handleSearch}
               onHide={this.hideSearch}
               options={options}
             />
-          ) : typeof title !== 'string' ? (
-            title
-          ) : (
-            <div className={classes.titleRoot} aria-hidden={'true'}>
-              <Typography variant="h6" className={classes.titleText}>
-                {title}
-              </Typography>
-            </div>
-          )}
+          }
         </div>
         <div className={classes.actions}>
           {options.search && (

@@ -109,7 +109,7 @@ class Example extends React.Component {
           onClick={() => this.setState(prevState => ({ downloadFile: !prevState.downloadFile }))}>
           {this.state.downloadFile ? 'Disable' : 'Enable'} Download
         </Button>
-        <MUIDataTable title={'ACME Employee list CSV'} data={data} columns={columns} options={options} />
+        <MUIDataTable data={data} columns={columns} options={options} />
       </React.Fragment>
     );
   }

@@ -68,18 +68,14 @@ const TABLE_LOAD = {
 };
 
 // Populate this list with anything that might render in the toolbar to determine if we hide the toolbar
-const TOOLBAR_ITEMS = ['title', 'filter', 'search', 'print', 'download', 'viewColumns', 'customToolbar'];
+const TOOLBAR_ITEMS = ['filter', 'search', 'print', 'download', 'viewColumns', 'customToolbar'];
 
-const hasToolbarItem = (options, title) => {
-  options.title = title;
-
+const hasToolbarItem = (options) => {
   return !isUndefined(find(TOOLBAR_ITEMS, i => options[i]));
 };
 
 class MUIDataTable extends React.Component {
   static propTypes = {
-    /** Title of the table */
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     /** Data used to describe table */
     data: PropTypes.array.isRequired,
     /** Columns used to describe table */
@@ -164,7 +160,6 @@ class MUIDataTable extends React.Component {
   };
 
   static defaultProps = {
-    title: '',
     options: {},
     data: [],
     columns: [],
@@ -1088,7 +1083,7 @@ class MUIDataTable extends React.Component {
   };
 
   render() {
-    const { classes, className, title } = this.props;
+    const { classes, className } = this.props;
     const {
       announceText,
       activeColumn,
@@ -1105,7 +1100,7 @@ class MUIDataTable extends React.Component {
 
     const rowCount = this.state.count || displayData.length;
     const rowsPerPage = this.options.pagination ? this.state.rowsPerPage : displayData.length;
-    const showToolbar = hasToolbarItem(this.options, title);
+    const showToolbar = hasToolbarItem(this.options);
     const columnNames = columns.map(column => ({ name: column.name, filterType: column.filterType }));
 
     return (
@@ -1135,7 +1130,6 @@ class MUIDataTable extends React.Component {
               searchText={searchText}
               searchTextUpdate={this.searchTextUpdate}
               tableRef={this.getTableContentRef}
-              title={title}
               toggleViewColumn={this.toggleViewColumn}
               setTableAction={this.setTableAction}
             />
@@ -1161,7 +1155,6 @@ class MUIDataTable extends React.Component {
             />
           )}
           <MuiTable ref={el => (this.tableRef = el)} tabIndex={'0'} role={'grid'} className={classes.tableRoot}>
-            <caption className={classes.caption}>{title}</caption>
             <TableHead
               columns={columns}
               activeColumn={activeColumn}
