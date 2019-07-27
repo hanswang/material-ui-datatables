@@ -124,9 +124,9 @@ The component accepts the following props:
 |:--:|:-----|:-----|
 |**`columns`**|array|Columns used to describe table. Must be either an array of simple strings or objects describing a column
 |**`data`**|array|Data used to describe table. Must be an array containing objects. (Arrays containing just strings or numbers also supported)
-|**`isLoading`**|array|Data used to describe table. Must be an array containing objects. (Arrays containing just strings or numbers also supported)
-|**`page`**|number||User provided starting page for pagination
-|**`count`**|number||User provided override for total number of rows
+|**`isLoading`**|boolean|Indicator to specify whether table is in loading status
+|**`page`**|number|User provided starting page for pagination
+|**`count`**|number|User provided override for total number of rows
 |**`options`**|object|Options used to describe table
 
 #### Options:
